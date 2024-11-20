@@ -1,20 +1,24 @@
 class Produtos {
     fun resolucao(){
         println("Coloque o nome do que deseja comprar")
-        val comeca = readLine()?:""
-        println("Quantos $comeca você deseja comprar?")
+        val produto = readLine()?:""
+        println("Quantos $produto você deseja comprar?")
         val quantidadeProduto = readLine()?.toIntOrNull()?:0
 
-        val resultado = mercadoria(quantidadeProduto, comeca)
-        println("O valor da compra total de $quantidadeProduto $comeca é: "+ resultado +"0 R$")
+        val resultado = mercadoria(quantidadeProduto, produto)
+        if (resultado > 0f) {
+            println("O valor da compra total de $quantidadeProduto $produto é: " + resultado + "0 R$")
+        }else {
+            println("O produto $produto não foi encontrado")
+        }
     }
-    fun mercadoria(quantidade: Int, produto: String):Float{
+    fun mercadoria(quantidade: Int, produtos: String):Float{
 
-        return when (produto){
+        return when (produtos){
             "3 Bombons"             -> quantidade * 0.5f
             "Absorventes"           -> quantidade * 5f
             "Agua com Gas"          -> quantidade * 2.5f
-            "agua mineral"          -> quantidade * 2f
+            "Agua Mineral"          -> quantidade * 2f
             "Agua Sanitaria"        -> quantidade * 3f
             "Bolacha Maria ou Agua/Sal" -> quantidade * 6f
             "Bombril"               -> quantidade * 0.5f
