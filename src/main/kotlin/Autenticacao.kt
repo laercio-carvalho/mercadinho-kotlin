@@ -1,9 +1,7 @@
 class Autenticacao {
-    fun autentica(): String{
+    fun autentica(): Boolean{
         println("Digite o nome do Usuário:"); val usuario = readlnOrNull()
         println("Digite a sua Senha:"); val senha = readlnOrNull()
-        return if (usuario == "laercio" && senha == "SemTelhaVermelha")
-            "Seja bem-vindo: $usuario!"
-        else "Usuário ou Senha Inválido(s)"
+        return if (usuario == "laercio" && senha == "SemTelhaVermelha") true else false
     }
 }
